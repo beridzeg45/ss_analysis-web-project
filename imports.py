@@ -41,6 +41,7 @@ intro_text="""👋 Welcome to my personal project : Tbilisi Apartment Prices Ana
 *Apart from this, it displays how prices vary by different geographical parts of the city, as well as availability of apartments for sale.
 *Finally, frequency distribution of prices by construction status and condition.
 
-The data is scraped from famous Georgian online real estate marketplace and updated on daily basis.
+The data is scraped from famous Georgian online real estate marketplace using python's BeautifulSoup and Selenium liabraries and updated on weekly basis.
+The dashboard and graphs are powered by python's dash and plotly liabraries.
         
 For other projects, feel free to visit my Github account 👀 : https://github.com/beridzeg45"""
