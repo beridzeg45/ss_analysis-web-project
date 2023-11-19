@@ -25,7 +25,7 @@ warnings.filterwarnings('ignore')
 
 app = dash.Dash(__name__)
 
-df=pd.read_csv(r'C:\Users\berid\OneDrive\Documents\GitHub\ss_analysis-web-project\dash\all_time_grouped.csv')
+df=pd.read_csv('visualize/../data/all_time_grouped.csv')
 
 today=dt.date.today().strftime("%Y-%m-%d")
 now=dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")

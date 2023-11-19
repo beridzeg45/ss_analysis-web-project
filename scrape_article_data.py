@@ -1,6 +1,6 @@
 from imports import *
 
-daily_article_urls=pickle.load(open('daily_article_urls.pickle','rb'))
+daily_article_urls=list(pickle.load(open('data/daily_article_urls.pickle','rb')))
 
 #scrape articles data
 daily_data=[]
@@ -11,9 +11,9 @@ def scrape_article(argument):
         article_soup=BeautifulSoup(article_html, 'html.parser')
 
         article_id=article_soup.select('span[class*="sc-6e54cb25-12 GRQvX"]')
-        article_title=article_soup.select_one('div[class="screen-section"] div[class*="sc-"] h2[class*="jvaJJV"]')
+        article_title=article_soup.select_one('div[class="screen-section"] div[class*="sc-"] h1[class="sc-6e54cb25-0 sc-486542b3-21 gDYjuA EGUGO"]')
         date_published=article_soup.select('span[class*="sc-6e54cb25-12 GRQvX"]')
-        appatment_price=article_soup.select_one('aside[class="detail-page-aside"] h1[id="price"]')
+        appatment_price=article_soup.select_one('aside[class="detail-page-aside"] h4[id="price"]')
         appatment_address=article_soup.select_one('div[class="screen-section"] a[id="address"]')
         apparment_details_1=set([i.get_text(separator='|') if i else None for i in article_soup.select('div[id="details_desc"] div[class*="sc-5fa917ee-0"] div')])
         apparment_details_2=set([i.get_text(separator='|') if i else None for i in article_soup.select('div[id="details_desc"] div[class*="sc-1b705347-0"] div')])
@@ -43,12 +43,6 @@ if __name__ == "__main__":
         except:
             daily_data.append(None)
 
-"""for i,article_url in enumerate(daily_article_urls,start=1):
-    arg=i,article_url,now,usd_gel_exchange_rate
-    result=scrape_article(arg)
-    daily_data.append(result)
-    print(f"Progress: {i}/{len(daily_article_urls)}",end='\r',flush=True)
-    sys.stdout.flush()"""
     
 
 #save daily data as csv

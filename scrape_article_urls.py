@@ -9,7 +9,7 @@ def scrape_page(page):
         page_html = requests.get(page_url).content
         page_soup = BeautifulSoup(page_html, 'html.parser')
 
-        articles = page_soup.select('div[class*="sc-b11955d3-0"]')
+        articles = page_soup.select('div[class*="sc-af116d90-0"]')
 
         article_urls=[]
         for article in articles:
@@ -29,7 +29,7 @@ cores=multiprocessing.cpu_count()
 
 if __name__=="__main__":
     with multiprocessing.Pool(cores) as pool:
-        pages=range(1,1000)
+        pages=range(1,1501)
         results=list(tqdm(pool.imap(scrape_page,pages),total=len(pages)))
 
     for result in results:
