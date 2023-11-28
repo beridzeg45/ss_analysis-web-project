@@ -1,3 +1,5 @@
+import sys
+sys.path.append('')
 from imports import *
 from figure_1 import layout_section_1
 from figure_2 import fig2
@@ -6,7 +8,7 @@ from figure_4 import fig4
 from figure_2_1 import fig_2_1
 
 
-
+df=pd.read_csv('dash/../data/all_time_grouped.csv')
 df['Date Published']=pd.to_datetime(df['Date Published'],errors='coerce').dt.date
 min_date=df['Date Published'].min().strftime('%B %d, %Y')
 max_date=df['Date Published'].max().strftime('%B %d, %Y')

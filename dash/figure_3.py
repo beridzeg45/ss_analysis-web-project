@@ -1,5 +1,8 @@
+import sys
+sys.path.append('')
 from imports import *
 
+df=pd.read_csv('dash/../data/all_time_grouped.csv')
 df['Date Published']=pd.to_datetime(df['Date Published'],errors='coerce')
 
 grouped=df.groupby('General Address')['Article ID'].sum().reset_index()
