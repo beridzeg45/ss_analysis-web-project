@@ -26,6 +26,7 @@ warnings.filterwarnings('ignore')
 
 
 app = dash.Dash(__name__)
+server=app.server
 
 #df=pd.read_csv('/data/all_time_grouped.csv')
 
